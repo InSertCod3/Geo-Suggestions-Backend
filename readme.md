@@ -12,6 +12,11 @@ Node.js based Practice Backend Service using express, fuse and papaparse.
 ___
 
 ```javascript
+// Running The code
+>>> npm start
+```
+___
+```javascript
 GET .../suggestions?q=Fort&result_limit=3
 ```
 ```javascript
