@@ -38,7 +38,7 @@ function api_suggestions(req, res){
   var _query = req.query.q != undefined ? req.query.q : undefined;
   var _result_limit = req.query.result_limit != undefined ? req.query.result_limit : 50;
   var _r_ = {status: "ok",
-             results: fuse.search(_query).slice(1, _result_limit)};
+             results: fuse.search(_query).slice(0, _result_limit)};
   if (req.query.q == '' || req.query.q == undefined ){
     _r_.status = "error"
     _r_.results = "Require url argument 'q' is Invaild" ;

@@ -15,9 +15,29 @@ ___
 GET .../suggestions?q=Fort&result_limit=3
 ```
 ```javascript
-{
-  "status": "ok",
+"status": "ok",
   "results": [
+    {
+      "id": "4111410",
+      "name": "Fort Smith",
+      "ascii": "Fort Smith",
+      "alt_name": "FSM,Fort Smit,Fort Smith,Fort-Smit,fotosumisu,fwrt asmyth, arkanzas,shi mi si bao,Форт Смит,Форт-Смит,فورت اسمیث، آرکانزاس,フォートスミス,史密斯堡",
+      "lat": "35.38592",
+      "long": "-94.39855",
+      "feat_class": "P",
+      "feat_code": "PPL",
+      "country": "US",
+      "cc2": "",
+      "admin1": "AR",
+      "admin2": "131",
+      "admin3": "",
+      "admin4": "",
+      "population": "86209",
+      "elevation": "134",
+      "dem": "135",
+      "tz": "America/Chicago",
+      "modified_at": "2011-05-14"
+    },
     {
       "id": "4156018",
       "name": "Fort Pierce",
