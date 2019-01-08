@@ -1,20 +1,31 @@
 ### Libaries
-Node.js based Practice Backend Service using express, fuse and papaparse.
+Node.js based Practice Backend Service using Express, Fuse and Papaparse.
 1. Express --> Server
 2. Fuse --> Database Query
-3. papaparse --> Data formatting
+3. Papaparse --> Data formatting
 
 ***
+## Url Parameters
 ```javascript
 @param q = Required argument to search database for string match.
 @param result_limit = Optional argument to limit how many results retrived. (Default : 50)
 ```
 ___
-
-```javascript
+## Running Local
+```sh
 // Running The code
+>>> npm install
 >>> npm start
 ```
+
+## Heroku Deploy
+```sh
+// Running The code
+>>> heroku create
+>>> git push heroku master
+>>> heroku open
+```
+
 ___
 ```javascript
 GET .../suggestions?q=Fort&result_limit=3
