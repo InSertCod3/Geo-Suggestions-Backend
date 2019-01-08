@@ -7,7 +7,7 @@ const fs = require('fs');
 
 // Express app init
 const app = express()
-const port = 5000  // App PORT
+app.set('port', (process.env.PORT || 5000)) // App PORT
 
 // Data Parsing
 var data_contents = fs.readFileSync(__dirname  + '/data/cities_canada-usa.tsv', 'utf8');
@@ -51,4 +51,4 @@ app.get('/', (req, res) => res.send('Hello World!'))
 app.get('/suggestions', api_suggestions)
 
 // Start Listen with the server
-app.listen(port, () => console.log(`Api app listening on port ${port}!`))
+app.listen(app.get("port"), () => console.log(`Api app listening on port ${app.get("port")}!`))
