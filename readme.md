@@ -13,14 +13,12 @@ Node.js based Practice Backend Service using Express, Fuse and Papaparse.
 ___
 ## Running Local
 ```sh
-// Running The code
 >>> npm install
 >>> npm start
 ```
 
 ## Heroku Deploy
 ```sh
-// Running The code
 >>> heroku create
 >>> git push heroku master
 >>> heroku open
