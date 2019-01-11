@@ -1,17 +1,21 @@
 "use strict";
 
-const express = require('express')
-const Fuse = require('fuse.js')
-const Papa = require('papaparse')
+const express = require('express');
+const Fuse = require('fuse.js');
+const Papa = require('papaparse');
 const fs = require('fs');
+const es6Renderer = require('express-es6-template-engine');
 
 // Express app init
-const app = express()
-app.set('port', (process.env.PORT || 5000)) // App PORT
+const app = express();
+app.set('port', (process.env.PORT || 5000)); // App PORT
+app.engine('html', es6Renderer);
+app.set('views', 'views');
+app.set('view engine', 'html');
 
 // Data Parsing
 var data_contents = fs.readFileSync(__dirname  + '/data/cities_canada-usa.tsv', 'utf8');
-var datatable = Papa.parse(data_contents, {"delimiter": "", "header": true})
+var datatable = Papa.parse(data_contents, {"delimiter": "", "header": true});
 
 var fuse_options = {
   shouldSort: true,
@@ -25,7 +29,7 @@ var fuse_options = {
     weight: 1
   }]
 };
-var fuse = new Fuse(datatable["data"], fuse_options)
+var fuse = new Fuse(datatable["data"], fuse_options);
 
 // console.log(datatable["data"]);
 // console.log(fuse.search('Estevan'));
@@ -40,15 +44,15 @@ function api_suggestions(req, res){
   var _r_ = {status: "ok",
              results: fuse.search(_query).slice(0, _result_limit)};
   if (req.query.q == '' || req.query.q == undefined ){
-    _r_.status = "error"
-    _r_.results = "Require url argument 'q' is Invaild" ;
+    _r_.status = "error";
+    _r_.results = "Require url argument 'q' is Invaild";
   }
   return res.json(_r_);
 }
 
 // Api Endpoints Register
-app.get('/', (req, res) => res.send('Hello World!'))
-app.get('/suggestions', api_suggestions)
+app.get('/', (req, res) => res.render('index'));
+app.get('/suggestions', api_suggestions);
 
 // Start Listen with the server
 app.listen(app.get("port"), () => console.log(`Api app listening on port ${app.get("port")}!`))
